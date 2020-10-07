@@ -1,0 +1,97 @@
+type Query {
+  "Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
+  users: ResultUsers
+  "Para iniciar sesion de usuario"
+  login(email: String!, password: String!): ResultLogin
+  "Autenticarnos mediante token"
+  me: ResultUser
+}
+type Mutation {
+  register(user: UserInput!): ResultUser
+}
+
+"Interface para especificar las propiedades obligatorias en las repsuesta"
+interface Result {
+  "estado de la operacion"
+  status: Boolean!
+  "Mensaje de l operacion para dar feedback"
+  message: String!
+}
+
+type ResultUsers implements Result {
+  "estado de la operacion"
+  status: Boolean!
+  "Mensaje de l operacion para dar feedback"
+  message: String!
+  "Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
+  users: [User!]!
+}
+type ResultUser implements Result {
+  "estado de la operacion"
+  status: Boolean!
+  "Mensaje de l operacion para dar feedback"
+  message: String!
+  "informacion de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
+  user: User
+}
+
+type ResultLogin implements Result {
+  "estado de la operacion"
+  status: Boolean!
+  "Mensaje de l operacion para dar feedback"
+  message: String!
+  "informacion del usuario logeado Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
+  token: String
+}
+"""
+Se detalla la informacion del usuario
+Se tiene que tener en cuenta
+email= usuario del cliente de la base de datos
+fecha de nacimiento y registro en formato ISO
+"""
+type User {
+  "Identificacion unica"
+  id: ID!
+  "nombre del usuario"
+  name: String!
+  "apellido del usuario"
+  lastname: String!
+  "correo del usuario"
+  email: String!
+  "contraseña del usuario"
+  password: String!
+  "fecha de registro del usuario"
+  registerDate: String!
+  "fecha de cumpleaños del usuario mayor a 18 anios"
+  birthday: String!
+  "imagen del usuario"
+  img: String
+  "permisos del usuario"
+  role: Role!
+}
+"Input para enviar los datos del usuario de registro"
+input UserInput {
+  "Identificacion unica no obligatorio en este caso"
+  id: ID
+  "nombre del usuario"
+  name: String!
+  "apellido del usuario"
+  lastname: String!
+  "correo del usuario"
+  email: String!
+  "contraseña del usuario"
+  password: String!
+  "fecha de cumpleaños del usuario mayor a 18 anios"
+  birthday: String!
+  "imagen del usuario"
+  img: String
+  "permisos del usuario"
+  role: Role = ESTUDIANTE
+}
+
+"Tipos de usuario que tenemos - permisos de los usuarios"
+enum Role {
+  ESTUDIANTE
+  ADMIN
+  DOCENTE
+}
