@@ -1,0 +1,27 @@
+"""
+Se detalla la informacion del usuario
+Se tiene que tener en cuenta
+email= usuario del cliente de la base de datos
+fecha de nacimiento y registro en formato ISO
+"""
+type User {
+  "Identificacion unica"
+  id: ID!
+  "nombre del usuario"
+  name: String!
+  "apellido del usuario"
+  lastname: String!
+  "correo del usuario"
+  email: String!
+  "contraseña del usuario"
+  password: String!
+  "fecha de registro del usuario"
+  registerDate: String!
+  "fecha de cumpleaños del usuario mayor a 18 anios"
+  birthday: String!
+  "imagen del usuario"
+  img: String
+  "permisos del usuario"
+  role: Role!
+}
+
