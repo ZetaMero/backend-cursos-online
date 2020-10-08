@@ -1,0 +1,11 @@
+type Query {
+  "Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
+  users: ResultUsers
+  "Para iniciar sesion de usuario"
+  login(email: String!, password: String!): ResultLogin
+  "Autenticarnos mediante token"
+  me: ResultUser
+  "Mostrar lista de cursos"
+  cursos: Boolean
+
+}

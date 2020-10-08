@@ -1,0 +1,6 @@
+"Tipos de usuario que tenemos - permisos de los usuarios"
+enum Role {
+  ESTUDIANTE
+  ADMIN
+  DOCENTE
+}

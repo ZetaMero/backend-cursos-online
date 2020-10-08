@@ -1,0 +1,19 @@
+"Input para enviar los datos del usuario de registro"
+input UserInput {
+  "Identificacion unica no obligatorio en este caso"
+  id: ID
+  "nombre del usuario"
+  name: String!
+  "apellido del usuario"
+  lastname: String!
+  "correo del usuario"
+  email: String!
+  "contraseña del usuario"
+  password: String!
+  "fecha de cumpleaños del usuario mayor a 18 anios"
+  birthday: String!
+  "imagen del usuario"
+  img: String
+  "permisos del usuario"
+  role: Role = ESTUDIANTE
+}

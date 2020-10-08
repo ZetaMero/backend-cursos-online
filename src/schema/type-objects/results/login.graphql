@@ -1,0 +1,9 @@
+
+type ResultLogin implements Result {
+  "estado de la operacion"
+  status: Boolean!
+  "Mensaje de l operacion para dar feedback"
+  message: String!
+  "informacion del usuario logeado Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
+  token: String
+}
