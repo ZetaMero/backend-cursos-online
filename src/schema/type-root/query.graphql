@@ -1,13 +1,12 @@
 type Query {
   "Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
-  users: ResultUsers
+  users(page: Int = 1, itemsPage: Int = 20): ResultUsers
   "Para iniciar sesion de usuario"
   login(email: String!, password: String!): ResultLogin
   "Autenticarnos mediante token"
   me: ResultUser
   "Mostrar lista de secciones"
-  seccions: ResultSeccion
+  seccions(page: Int = 1, itemsPage: Int = 20): ResultSeccion
   "Mostrar lista de seccion seleccionada"
   seccion(id: ID!): ResultSeccion
-
 }

@@ -9,6 +9,7 @@ import {
   insertOneElement,
   updateOneElement,
 } from "../lib/db-operations";
+import { pagination } from "../lib/pagination";
 
 class ResolversOperationService {
   private variable: IVariables;
@@ -27,16 +28,34 @@ class ResolversOperationService {
     return this.variable;
   }
   //   Listar informacion
-  protected async list(collection: string, listElement: string) {
-   console.log(collection);
+  protected async list(
+    collection: string,
+    listElement: string,
+    page: number = 1,
+    itemsPage: number = 20
+  ) {
     try {
+      const paginationData = await pagination(
+        this.getDb(),
+        collection,
+        page,
+        itemsPage
+      );
+
       return {
+        info: {
+          page: paginationData.page,
+          pages: paginationData.pages,
+          itemsPage: paginationData.itemsPage,
+          total: paginationData.total,
+        },
         status: true,
         message: `Lista de ${listElement} cargadas`,
-        items: await findElement(this.getDb(), collection),
+        items: await findElement(this.getDb(), collection, {}, paginationData),
       };
     } catch (error) {
       return {
+        info: null,
         status: false,
         message: `Lista de secciones no cargadas: ${error}`,
         items: null,

@@ -11,8 +11,11 @@ class SeccionService extends ResolversOperationService {
   }
 
   async items() {
-    const result = await this.list(this.collection, "seccion");
+    const page = this.getVariables().pagination?.page;
+    const itemsPage = this.getVariables().pagination?.itemsPage;
+    const result = await this.list(this.collection, "seccion", page, itemsPage);
     return {
+      info: result.info,
       status: result.status,
       message: result.message,
       seccions: result.items,

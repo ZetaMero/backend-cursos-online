@@ -1,4 +1,5 @@
 type ResultSeccion implements Result {
+  info: ResultInfo
   "estado de la operacion"
   status: Boolean!
   "Mensaje de l operacion para dar feedback"
