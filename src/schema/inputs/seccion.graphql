@@ -1,0 +1,9 @@
+"Input para enviar los datos del usuario de registro"
+input SeccionInput {
+  "Identificacion unica no obligatorio en este caso"
+  id: ID
+  "nombre del usuario"
+  name: String!
+  description: String!
+  recursos: String
+}

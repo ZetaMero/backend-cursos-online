@@ -9,7 +9,7 @@ input UserInput {
   "correo del usuario"
   email: String!
   "contraseña del usuario"
-  password: String!
+  password: String
   "fecha de cumpleaños del usuario mayor a 18 anios"
   birthday: String!
   "imagen del usuario"

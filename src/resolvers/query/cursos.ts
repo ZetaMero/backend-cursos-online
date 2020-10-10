@@ -1,13 +1,7 @@
 import { IResolvers } from "graphql-tools";
 
-
 const resolversCursosQuery: IResolvers = {
-  Query: {
-    
-    cursos(){
-      return true;
-    }
-  },
+  Query: {},
 };
 
 export default resolversCursosQuery;

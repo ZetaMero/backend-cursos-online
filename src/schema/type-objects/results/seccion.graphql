@@ -1,0 +1,11 @@
+type ResultSeccion implements Result {
+  "estado de la operacion"
+  status: Boolean!
+  "Mensaje de l operacion para dar feedback"
+  message: String!
+  "seccion lista"
+  seccion: Seccion 
+  seccions: [Seccion!]
+
+  
+}

@@ -6,3 +6,4 @@ type ResultUsers implements Result {
   "Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
   users: [User!]!
 }
+

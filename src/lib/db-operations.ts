@@ -17,11 +17,10 @@ export const asignDocumentId = async (
     .limit(1)
     .sort(sort)
     .toArray();
-  // se asigna el id al usuario si existe o no
   if (lastElement.length === 0) {
-    return 1;
+    return "1";
   }
-  return lastElement[0].id + 1;
+  return String(+lastElement[0].id + 1);
 };
 
 export const findOneElement = async (
@@ -39,6 +38,24 @@ export const insertOneElement = async (
 ) => {
   return await database.collection(collection).insertOne(document);
 };
+export const insertManyElements = async (
+  database: Db,
+  collection: string,
+  documents: Array<object>
+) => {
+  return await database.collection(collection).insertMany(documents);
+};
+
+export const updateOneElement = async (
+  database: Db,
+  collection: string,
+  filter: object,
+  updateObject: object
+) => {
+  return await database
+    .collection(collection)
+    .updateOne(filter, { $set: updateObject });
+};
 
 export const findElement = async (
   database: Db,
@@ -46,4 +63,12 @@ export const findElement = async (
   filter: object = {}
 ) => {
   return await database.collection(collection).find(filter).toArray();
+};
+
+export const deleteOneElement = async (
+  database: Db,
+  collection: string,
+  filter: object = {}
+) => {
+  return await database.collection(collection).deleteOne(filter);
 };

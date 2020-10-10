@@ -5,7 +5,9 @@ type Query {
   login(email: String!, password: String!): ResultLogin
   "Autenticarnos mediante token"
   me: ResultUser
-  "Mostrar lista de cursos"
-  cursos: Boolean
+  "Mostrar lista de secciones"
+  seccions: ResultSeccion
+  "Mostrar lista de seccion seleccionada"
+  seccion(id: ID!): ResultSeccion
 
 }

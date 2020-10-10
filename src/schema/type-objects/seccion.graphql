@@ -1,0 +1,9 @@
+
+"tipo de objeto para almacenar las secciones de los cursos"
+type Seccion {
+    id: ID!,
+    name: String!,
+    video: String,
+    description: String!,
+    recursos: String
+}
