@@ -1,11 +1,13 @@
 import GRM from 'graphql-merge-resolvers';
+import resolversMailMutation from './email';
 import resolversSeccionMutation from './seccion';
 import resolversUserMutation from './user';
 
 const mutationResolvers = GRM.merge([
 
     resolversUserMutation,
-    resolversSeccionMutation
+    resolversSeccionMutation,
+    resolversMailMutation
 ]);
 
 export default mutationResolvers;

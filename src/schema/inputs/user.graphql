@@ -16,4 +16,6 @@ input UserInput {
   img: String
   "permisos del usuario"
   role: Role = ESTUDIANTE
+  active: Boolean
 }
+

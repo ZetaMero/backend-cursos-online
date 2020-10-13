@@ -5,4 +5,5 @@ type ResultUser implements Result {
   message: String!
   "informacion de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
   user: User
+  
 }

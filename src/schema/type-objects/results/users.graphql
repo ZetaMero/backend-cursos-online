@@ -7,5 +7,6 @@ type ResultUsers implements Result {
   message: String!
   "Listas de usuarios registrados en la base de datos (Admin/ Docente/ Estuadiante )"
   users: [User!]!
+  
 }
 

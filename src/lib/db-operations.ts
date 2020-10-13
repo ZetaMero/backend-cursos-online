@@ -73,7 +73,12 @@ export const findElement = async (
   if (paginationOptions.total === -1) {
     return await database.collection(collection).find(filter).toArray();
   }
-  return await database.collection(collection).find(filter).limit(paginationOptions.itemsPage).skip(paginationOptions.skip).toArray();
+  return await database
+    .collection(collection)
+    .find(filter)
+    .limit(paginationOptions.itemsPage)
+    .skip(paginationOptions.skip)
+    .toArray();
 };
 
 export const deleteOneElement = async (
@@ -84,6 +89,10 @@ export const deleteOneElement = async (
   return await database.collection(collection).deleteOne(filter);
 };
 
-export const countElements = async (database: Db, collection: string) => {
-  return await database.collection(collection).countDocuments();
+export const countElements = async (
+  database: Db,
+  collection: string,
+  filter: object = {}
+) => {
+  return await database.collection(collection).countDocuments(filter);
 };
